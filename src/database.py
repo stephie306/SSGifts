@@ -22,8 +22,17 @@ conn.cursor().execute(
         username TEXT NOT NULL,
         age INTEGER CHECK(age >= 18),
         user_mail TEXT NOT NULL,
+        password TEXT NOT NULL,
         event_id INTEGER,
         FOREIGN KEY(event_id) REFERENCES Event(id)
     )
     '''
 )
+
+class DB:
+    def __enter__(self):
+        self.connection = sqlite3.connect(DB_NAME)
+        return self.connection.cursor()
+
+    def __exit__(self, type, value, traceback):
+        self.connection.commit()
