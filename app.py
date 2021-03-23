@@ -20,7 +20,7 @@ def login():
     return redirect('/html/login.html')
 
 
-@app.route('register', methods=['GET', 'POST'])
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     return redirect('/html/register.html')
 
