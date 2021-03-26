@@ -20,6 +20,10 @@ def login():
     return redirect('/html/login.html')
 
 
+@socket.on("login")
+def socket_login_event():
+    return redirect('/login')
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     return redirect('/html/register.html')
