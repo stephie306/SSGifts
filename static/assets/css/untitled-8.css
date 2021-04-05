@@ -4,3 +4,9 @@
   color: #fff;
 }
 
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+  color: white;
+  background-color: #fec503;
+  border-color: #f3bd01;
+}
+
