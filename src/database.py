@@ -19,7 +19,8 @@ conn.cursor().execute(
     '''
     CREATE TABLE IF NOT EXISTS User (
         id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-        username TEXT NOT NULL,
+        user_first_name TEXT NOT NULL,
+        user_last_name TEXT NOT NULL,
         age INTEGER CHECK(age >= 18),
         user_mail TEXT NOT NULL,
         password TEXT NOT NULL,
