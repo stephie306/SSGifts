@@ -21,9 +21,11 @@ conn.cursor().execute(
         id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
         user_first_name TEXT NOT NULL,
         user_last_name TEXT NOT NULL,
-        age INTEGER CHECK(age >= 18),
+        age INTEGER CHECK(age >= 16),
+        gender TEXT,
         user_mail TEXT NOT NULL,
         password TEXT NOT NULL,
+        address TEXT,
         event_id INTEGER,
         FOREIGN KEY(event_id) REFERENCES Event(id)
     )
