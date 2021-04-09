@@ -1,9 +1,8 @@
 import os
-from flask import Flask, send_from_directory, render_template, redirect, url_for
+from flask import Flask, send_from_directory, render_template, redirect, url_for, request
 from flask_socketio import SocketIO
 from flask_restful import Api, Resource, reqparse
 from flask_cors import CORS  # comment this on deployment
-import requests
 
 app = Flask(__name__, static_url_path='', static_folder='static', template_folder='static/html/')
 CORS(app)  # comment this on deployment
