@@ -1,22 +1,24 @@
 import hashlib
 
-from database import DB
+from src.database import DB
 
 
 class User:
-    def __init__(self, id, first_name, last_name, password, age, email):
+    def __init__(self, id, first_name, last_name, password, age, gender, email, address):
         self.id = id
         self.first_name = first_name
         self.last_name = last_name
         self.password = hashlib.sha256(password.encode('utf-8')).hexdigest()
         self.age = age
+        self.gender = gender
         self.email = email
+        self.address = address
 
     def create(self):
         with DB() as db:
-            values = (self.first_name, self.last_name, self.age, self.email, self.password)
+            values = (self.first_name, self.last_name, self.age, self.gender, self.email, self.password, self.address)
             db.execute('''
-                INSERT INTO Users(user_first_name, user_last_name, age, user_mail, password) VALUES(?, ?, ?, ?, ?)
+                INSERT INTO User(user_first_name, user_last_name, age, gender, user_mail, password, address) VALUES(?, ?, ?, ?, ?, ?, ?)
                 ''', values)
 
             return self
