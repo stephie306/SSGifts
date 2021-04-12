@@ -36,17 +36,14 @@ def login():
         password = request.form['Password']
         user = User.find_by_email(email)
 
-        print(user.password)
-        print(User.hash_password(password))
-        
         if not user or not user.verify_password(password):
             # app.logger.warn('%s is NOT logged!', username)
             return jsonify({'token': None})
 
         # app.logger.info('%s logged in successfully', username)
         token = user.generate_token()
-        return jsonify({'token': token.decode('ascii')})
-        # return redirect("/")
+        jsonify({'token': token.decode('ascii')})
+        return redirect("/")
 
 
 @app.route('/register', methods=['GET', 'POST'])

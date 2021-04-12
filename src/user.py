@@ -22,7 +22,7 @@ class User:
 
     def create(self):
         with DB() as db:
-            values = (self.first_name, self.last_name, self.age, self.gender, self.email, User.hash_password(self.password), self.address)
+            values = (self.first_name, self.last_name, self.age, self.gender, self.email, self.password, self.address)
             db.execute('''
                 INSERT INTO User(user_first_name, user_last_name, age, gender, user_mail, password, address) VALUES(?, ?, ?, ?, ?, ?, ?)
                 ''', values)
@@ -74,7 +74,7 @@ class User:
 
     def generate_token(self):
         s = Serializer(SECRET_KEY, expires_in=1000)
-        return s.dumps({'username': self.username})
+        return s.dumps({'email': self.email})
 
     @staticmethod
     def verify_token(token):
