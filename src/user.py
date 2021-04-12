@@ -1,6 +1,6 @@
 import hashlib
 
-from database import DB
+from src.database import DB
 
 
 class User:
@@ -18,7 +18,7 @@ class User:
         with DB() as db:
             values = (self.first_name, self.last_name, self.age, self.gender, self.email, self.password, self.address)
             db.execute('''
-                INSERT INTO Users(user_first_name, user_last_name, age, gender, user_mail, password, address) VALUES(?, ?, ?, ?, ?, ?, ?)
+                INSERT INTO User(user_first_name, user_last_name, age, gender, user_mail, password, address) VALUES(?, ?, ?, ?, ?, ?, ?)
                 ''', values)
 
             return self
