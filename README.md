@@ -37,7 +37,7 @@ Our main front-end designer is Stephanie Staykova:
  
 Stefan Bosev mostly managed the backend.
   * github: https://github.com/StefanBosev
-  * LinkedIn: 
+  * LinkedIn: https://www.linkedin.com/in/stephanie-staykova-65917b210/
 
 ## Licence
 
